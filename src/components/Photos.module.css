@@ -1,0 +1,11 @@
+.cardCont {
+	display: flex;
+	flex-direction: column;
+}
+.card {
+	height: 300px;
+	width: 300px;
+	background-color: gray;
+	margin: auto;
+	margin-top: 20px;
+}
