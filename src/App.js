@@ -8,7 +8,7 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			api_key: '19c761b4f716b2769fb07202e8120435',
+			api_key: '',
 			tags: '',
 			data: [],
 			loadedPhotos: []
