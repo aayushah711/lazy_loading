@@ -3,11 +3,10 @@ import styles from './Photos.module.css';
 import Image from './Image';
 
 export default function Photos(props) {
-	console.log(props);
 	return (
 		<div className={styles.cardCont}>
-			{props.data.map((item) => {
-				return <Image item={item} />;
+			{props.data.map((item, index) => {
+				return <Image key={item.id} item={item} show={false} />;
 			})}
 		</div>
 	);

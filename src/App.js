@@ -9,7 +9,7 @@ class App extends Component {
 		super();
 		this.state = {
 			api_key: '19c761b4f716b2769fb07202e8120435',
-			tags: 'pink',
+			tags: '',
 			data: [],
 			loadedPhotos: []
 		};
@@ -28,7 +28,7 @@ class App extends Component {
 	fetchingPhotos = () => {
 		Axios.get(
 			`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.state.api_key}&tags=${this
-				.state.tags}&format=json&nojsoncallback=1`
+				.state.tags}&format=json&nojsoncallback=1&per_page=10`
 		)
 			.then((response) => {
 				this.setState({
@@ -48,12 +48,12 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Form handleSubmit={this.handleSubmit}>
+				<Form>
 					<input name="tags" value={this.state.tags} onChange={this.handleChange} placeholder="tags" />
-					<input type="submit" value="Submit" />
+					<input onClick={this.handleSubmit} type="submit" value="Submit" />
 				</Form>
 
-				<Photos loadImg={this.loadImg} data={this.state.data} />
+				<Photos data={this.state.data} />
 			</div>
 		);
 	}

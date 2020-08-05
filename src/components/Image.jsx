@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+import styles from './Photos.module.css';
 
 export default class Image extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			show: false,
+			show: props.show,
 			item: props.item
 		};
 	}
 
-	callback = (entries, observer, target) => {
-		console.log('anything');
-		console.log(target.id);
-		console.log(entries[0].isIntersecting);
+	componentDidMount(a, b) {
+		this.setState({
+			show: false
+		});
+	}
+
+	handleIntersection = (entries, observer, target) => {
+		console.log('inside handleIntersection');
 		if (entries[0].isIntersecting) {
 			this.setState({
 				show: true
@@ -22,7 +27,6 @@ export default class Image extends Component {
 	};
 
 	loadImg = (e) => {
-		console.log('loading image');
 		let target = e.target;
 		let options = {
 			root: null,
@@ -31,7 +35,7 @@ export default class Image extends Component {
 		};
 
 		let observer = new IntersectionObserver((entries, observer) => {
-			this.callback(entries, observer, target);
+			this.handleIntersection(entries, observer, target);
 		}, options);
 		observer.observe(target);
 	};
@@ -48,6 +52,7 @@ export default class Image extends Component {
 					)
 				}
 				onLoad={(e) => this.loadImg(e)}
+				className={styles.card}
 			/>
 		);
 	}
