@@ -10,14 +10,13 @@ export default class Image extends Component {
 		};
 	}
 
-	componentDidMount(a, b) {
+	componentDidMount() {
 		this.setState({
 			show: false
 		});
 	}
 
 	handleIntersection = (entries, observer, target) => {
-		console.log('inside handleIntersection');
 		if (entries[0].isIntersecting) {
 			this.setState({
 				show: true
@@ -51,6 +50,7 @@ export default class Image extends Component {
 						'https://via.placeholder.com/300'
 					)
 				}
+				alt={id}
 				onLoad={(e) => this.loadImg(e)}
 				className={styles.card}
 			/>

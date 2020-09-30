@@ -4,7 +4,7 @@ import Image from './Image';
 
 export default function Photos(props) {
 	return (
-		<div className={styles.cardCont}>
+		<div className={styles.cardCont} id="photos">
 			{props.data.map((item, index) => {
 				return <Image key={item.id} item={item} show={false} />;
 			})}

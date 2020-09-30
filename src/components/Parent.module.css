@@ -1,0 +1,16 @@
+.imgCont {
+	height: 300px;
+	width: 300px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* border: red dashed; */
+	margin: auto;
+	margin-top: 20px;
+	background-image: linear-gradient(red, green);
+}
+
+.img {
+	/* height: 100%; */
+}
